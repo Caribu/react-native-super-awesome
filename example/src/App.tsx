@@ -6,7 +6,7 @@ import { SuperAwesomeView } from 'react-native-super-awesome';
 export default function App() {
   return (
     <View style={styles.container}>
-      <SuperAwesomeViewManager color="#32a852" style={styles.box} />
+      <SuperAwesomeView color="#32a852" style={styles.box} />
     </View>
   );
 }
