@@ -12,8 +12,8 @@ const LINKING_ERROR =
   '- You are not using Expo managed workflow\n';
 
 type SuperAwesomeProps = {
-  color: string;
-  style: ViewStyle;
+  // color: string;
+  // style: ViewStyle;
 };
 
 const ComponentName = 'SuperAwesomeView';

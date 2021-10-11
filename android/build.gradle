@@ -127,4 +127,9 @@ dependencies {
   // noinspection GradleDynamicVersion
   api 'com.facebook.react:react-native:+'
   implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+  // super awesome
+  compile 'tv.superawesome.sdk:sa-sdk:3.6.5@aar'
+  compile 'com.google.android.gms:play-services:8.4.0'
+  // https://sa-mobile-sdk-android.readthedocs.io/en/latest/02integrate.html
 }
