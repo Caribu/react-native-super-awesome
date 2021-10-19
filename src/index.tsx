@@ -1,8 +1,9 @@
 import {
+  NativeModules,
   requireNativeComponent,
   UIManager,
   Platform,
-  ViewStyle,
+  //  ViewStyle,
 } from 'react-native';
 
 const LINKING_ERROR =
@@ -24,3 +25,20 @@ export const SuperAwesomeView =
     : () => {
         throw new Error(LINKING_ERROR);
       };
+
+export const VideoAd = NativeModules.VideoAd
+  ? NativeModules.VideoAd
+  : new Proxy(
+      {},
+      {
+        get() {
+          throw new Error(LINKING_ERROR);
+        },
+      }
+    );
+
+/*
+export function multiply(a: number, b: number): Promise<number> {
+  return VideoAd.multiply(a, b);
+}
+*/
