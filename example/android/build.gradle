@@ -36,6 +36,6 @@ allprojects {
         jcenter()
         maven { url 'https://www.jitpack.io' }
         // super awesome
-          maven { url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" }
+        maven { url "https://aa-sdk.s3-eu-west-1.amazonaws.com/android_repo" }
     }
 }
