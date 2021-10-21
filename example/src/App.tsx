@@ -1,13 +1,9 @@
 import * as React from 'react';
 
 import { StyleSheet, View } from 'react-native';
-import { VideoAd } from 'react-native-super-awesome';
+import { SAEvent, VideoAd } from 'react-native-super-awesome';
 
 export default function App() {
-  const play = async () => {
-    await VideoAd.play(74790);
-  };
-
   React.useEffect(() => {
     VideoAd.disableCloseButton();
     VideoAd.disableCloseAtEnd();
@@ -17,7 +13,11 @@ export default function App() {
     VideoAd.enableSmallClickButton();
     VideoAd.enableTestMode();
     VideoAd.load(74790);
-    play();
+    VideoAd.setCallback().then((result: SAEvent) => {
+      if (result === SAEvent.adLoaded) {
+        VideoAd.play(74790);
+      }
+    });
   }, []);
 
   return <View style={styles.container}></View>;

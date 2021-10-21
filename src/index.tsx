@@ -6,6 +6,18 @@ const LINKING_ERROR =
   '- You rebuilt the app after installing the package\n' +
   '- You are not using Expo managed workflow\n';
 
+export enum SAEvent {
+  adLoaded = 0,
+  adEmpty = 1,
+  adFailedToLoad = 2,
+  adAlreadyLoaded = 3,
+  adShown = 4,
+  adFailedToShow = 5,
+  adClicked = 6,
+  adEnded = 7,
+  adClosed = 8,
+}
+
 type VideoAdProps = {
   disableBumperPage: () => void;
   disableCloseAtEnd: () => void;
@@ -19,6 +31,8 @@ type VideoAdProps = {
   enableSmallClickButton: () => void;
   enableParentalGate: () => void;
   enableTestMode: () => void;
+  hasAdAvailable: (placementId: Number) => any;
+  setCallback: () => any;
   setConfigurationProduction: () => void;
   setConfigurationStaging: () => void;
   setOrientationAny: () => void;

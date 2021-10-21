@@ -27,5 +27,8 @@ RCT_EXTERN_METHOD(setOrientationPortrait)
 RCT_EXTERN_METHOD(load:(int)placementId)
 RCT_EXTERN_METHOD(play:(int)placementId)
 
+RCT_EXTERN_METHOD(setCallback:(RCTPromiseResolveBlock)resolve
+                  withRejecter:(RCTPromiseRejectBlock)reject)
+
 @end
 
