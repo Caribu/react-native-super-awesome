@@ -5,10 +5,9 @@ import { SAEvent, VideoAd } from 'react-native-super-awesome';
 
 export default function App() {
   React.useEffect(() => {
+    VideoAd.disableBumperPage();
     VideoAd.disableCloseButton();
     VideoAd.disableCloseAtEnd();
-    VideoAd.disableParentalGate();
-    VideoAd.enableBumperPage();
     VideoAd.enableParentalGate();
     VideoAd.enableSmallClickButton();
     VideoAd.enableTestMode();
