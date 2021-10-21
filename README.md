@@ -53,30 +53,30 @@ export default function App() {
 | adFailedToShow           | 
 | adClicked                | 
 | adEnded                  | 
-| adClosed.                | 
+| adClosed                 | 
 
-| VideoAd (Class)          | Parameter | Return          |
-| ------------------------ | --------- | --------------- |
-| disableBumperPage()      | void      | void            |
-| disableCloseAtEnd()      | void      | void            |
-| disableCloseButton()     | void      | void            |
-| disableSmallClickButton()| void      | void            |
-| disableParentalGate()    | void      | void            |
-| disableTestMode()        | void      | void            |
-| enableBumperPage()       | void      | void            |
-| enableCloseAtEnd()       | void      | void            |
-| enableCloseButton()      | void      | void            |
-| enableSmallClickButton() | void      | void            |
-| enableParentalGate()     | void      | void            |
-| enableTestMode()         | void      | void            |
-| setCallback()            | void      | evt: SAEvent    |
-| setConfigurationStaging()| void      | void            |
-| setConfigurationProduction()| void   | void            |
-| setOrientationAny() | void      | void            |
-| setOrientationLandscape()     | void      | void            |
-| setOrientationPortrait()         | void      | void            |
-| load()     | id: Int      | void            |
-| play(      | id: int      | void            |
+| VideoAd (Class)             | Parameter | Return          |
+| ------------------------    | --------- | --------------- |
+| disableBumperPage()         | void      | void            |
+| disableCloseAtEnd()         | void      | void            |
+| disableCloseButton()        | void      | void            |
+| disableSmallClickButton()   | void      | void            |
+| disableParentalGate()       | void      | void            |
+| disableTestMode()           | void      | void            |
+| enableBumperPage()          | void      | void            |
+| enableCloseAtEnd()          | void      | void            |
+| enableCloseButton()         | void      | void            |
+| enableSmallClickButton()    | void      | void            |
+| enableParentalGate()        | void      | void            |
+| enableTestMode()            | void      | void            |
+| setCallback()               | void      | evt: SAEvent    |
+| setConfigurationStaging()   | void      | void            |
+| setConfigurationProduction()| void      | void            |
+| setOrientationAny()         | void      | void            |
+| setOrientationLandscape()   | void      | void            |
+| setOrientationPortrait()    | void      | void            |
+| load()                      | id: Int   | void            |
+| play()                      | id: int   | void            |
 
 
 ## Contributing
