@@ -1,6 +1,6 @@
 # react-native-super-awesome
 
-React native module for SuperAwesome Ads (Android and iOS).
+React native module for SuperAwesome Ads (Android and iOS). Typescript supported.
 
 ## Installation
 
