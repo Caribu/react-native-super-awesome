@@ -21,6 +21,9 @@ import { View } from 'react-native';
 import { SAEvent, VideoAd } from 'react-native-super-awesome';
 
 export default function App() {
+
+  const SA_PLACEMENT_ID = 1234;
+  
   React.useEffect(() => {
     VideoAd.disableBumperPage();
     VideoAd.disableCloseButton();
@@ -28,11 +31,11 @@ export default function App() {
     VideoAd.enableParentalGate();
     VideoAd.enableSmallClickButton();
     VideoAd.disableTestMode();
-    VideoAd.load(74790);
+    VideoAd.load(SA_PLACEMENT_ID);
     VideoAd.setConfigurationProduction();
     VideoAd.setCallback().then((result: SAEvent) => {
       if (result === SAEvent.adLoaded) {
-        VideoAd.play(74790);
+        VideoAd.play(SA_PLACEMENT_ID);
       }
     });
   }, []);
