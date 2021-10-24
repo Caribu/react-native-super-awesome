@@ -1,10 +1,11 @@
 #import "React/RCTViewManager.h"
+#import <React/RCTEventEmitter.h>
 
 @interface RCT_EXTERN_MODULE(SuperAwesomeViewManager, RCTViewManager)
 
 @end
 
-@interface RCT_EXTERN_MODULE(VideoAd, NSObject)
+@interface RCT_EXTERN_MODULE(VideoAd, RCTEventEmitter)
 
 RCT_EXTERN_METHOD(disableBumperPage)
 RCT_EXTERN_METHOD(disableCloseAtEnd)
@@ -27,8 +28,6 @@ RCT_EXTERN_METHOD(setOrientationPortrait)
 RCT_EXTERN_METHOD(load:(int)placementId)
 RCT_EXTERN_METHOD(play:(int)placementId)
 
-RCT_EXTERN_METHOD(setCallback:(RCTPromiseResolveBlock)resolve
-                  withRejecter:(RCTPromiseRejectBlock)reject)
 
 @end
 

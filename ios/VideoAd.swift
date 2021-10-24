@@ -10,8 +10,18 @@ import Foundation
 import SuperAwesome
 
 @objc(VideoAd)
-class VideoAd: NSObject {
-  
+class VideoAd: RCTEventEmitter {
+
+  override
+  init(){
+      super.init()
+      self.setCallback()
+  }
+
+  override func supportedEvents() -> [String]! {
+    return ["AwesomeAdsVideoEvent"]
+  }
+
   @objc func disableBumperPage() {
     SuperAwesome.VideoAd.disableBumperPage()
   }
@@ -97,9 +107,9 @@ class VideoAd: NSObject {
   }
   
   @objc
-  func setCallback(_ resolve: @escaping RCTPromiseResolveBlock, withRejecter reject: @escaping RCTPromiseRejectBlock) {
+  func setCallback() {
     SuperAwesome.VideoAd.setCallback { id, event in
-      resolve(event.rawValue)
+      self.sendEvent(withName: "AwesomeAdsVideoEvent", body: event.rawValue)
     }
   }
 }
