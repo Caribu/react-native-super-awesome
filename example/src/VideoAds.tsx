@@ -1,6 +1,6 @@
 import { NativeEventEmitter, NativeModules } from 'react-native';
 
-const { AwesomeAdsView } = NativeModules;
+const { VideoAd } = NativeModules;
 
 const availableFunctions = {
   disableBackButton: '',
@@ -53,7 +53,7 @@ const availableFunctions = {
 
 let onEventHandler = (event: any) => {};
 
-const eventEmitter = new NativeEventEmitter(AwesomeAdsView);
+const eventEmitter = new NativeEventEmitter(VideoAd);
 eventEmitter.addListener('AwesomeAdsVideoEvent', (event) => {
   onEventHandler(event);
 });
@@ -76,7 +76,7 @@ const VideoAdFunctions: {
 } = {};
 
 Object.keys(availableFunctions).forEach((funcName) => {
-  const fn = (...args: any) => AwesomeAdsView[funcName](...args);
+  const fn = (...args: any) => VideoAd[funcName](...args);
   VideoAdFunctions[funcName] = fn;
   VideoAds[funcName] = fn;
 });

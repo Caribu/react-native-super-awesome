@@ -23,7 +23,7 @@ public class AwesomeAdsPackage implements ReactPackage {
             ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
 
-        modules.add(new AwesomeAdsView(reactContext));
+        modules.add(new VideoAd(reactContext));
 
         return modules;
     }

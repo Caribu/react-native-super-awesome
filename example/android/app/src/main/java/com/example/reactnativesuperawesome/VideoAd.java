@@ -21,20 +21,65 @@ import com.facebook.react.bridge.Arguments;
 
 import tv.superawesome.sdk.publisher.*;
 
-public class AwesomeAdsView extends ReactContextBaseJavaModule {
+public class VideoAd extends ReactContextBaseJavaModule {
   private static ReactApplicationContext reactContext;
 
 
-  AwesomeAdsView(ReactApplicationContext context) {
+  VideoAd(ReactApplicationContext context) {
     super(context);
     reactContext = context;
     this.setListener();
   }
+  
 
   @Override
   public String getName() {
-    return "AwesomeAdsView";
+    return "VideoAd";
   }
+
+  public void setListener() {
+    SAVideoAd.setListener(new SAInterface() {
+      @Override
+      public void onEvent(int placementId, SAEvent event) {
+        switch (event) {
+          case adLoaded:
+            // called when an ad has finished loading
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adLoaded");
+            break;
+          case adEmpty:
+            // called when the request was successful but the server returned no ad
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adEmpty");
+            break;
+          case adFailedToLoad:
+            // called when an ad could not be loaded
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adFailedToLoad");
+            break;
+          case adShown:
+            // called when an ad is first shown
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adShown");
+            break;
+          case adFailedToShow:
+            // called when an ad fails to show
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adFailedToShow");
+            break;
+          case adClicked:
+            // called when an ad is clicked
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adClicked");
+            break;
+          case adEnded:
+            // called when a video ad has ended playing (but hasn't yet closed)
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adEnded");
+            break;
+          case adClosed:
+            // called when a fullscreen ad is closed
+            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adClosed");
+            break;
+        }
+      }
+    });
+  }
+
+  //////////////////////////////////////////////////////////////////////
 
   @ReactMethod
   public void load(int placementId) {
@@ -92,49 +137,6 @@ public class AwesomeAdsView extends ReactContextBaseJavaModule {
   /**********************************************************************************************
    * Setters & Getters
    **********************************************************************************************/
-
-  @ReactMethod
-  public void setListener() {
-    SAVideoAd.setListener(new SAInterface() {
-      @Override
-      public void onEvent(int placementId, SAEvent event) {
-        switch (event) {
-          case adLoaded:
-            // called when an ad has finished loading
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adLoaded");
-            break;
-          case adEmpty:
-            // called when the request was successful but the server returned no ad
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adEmpty");
-            break;
-          case adFailedToLoad:
-            // called when an ad could not be loaded
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adFailedToLoad");
-            break;
-          case adShown:
-            // called when an ad is first shown
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adShown");
-            break;
-          case adFailedToShow:
-            // called when an ad fails to show
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adFailedToShow");
-            break;
-          case adClicked:
-            // called when an ad is clicked
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adClicked");
-            break;
-          case adEnded:
-            // called when a video ad has ended playing (but hasn't yet closed)
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adEnded");
-            break;
-          case adClosed:
-            // called when a fullscreen ad is closed
-            sendEvent(reactContext, "AwesomeAdsVideoEvent", "adClosed");
-            break;
-        }
-      }
-    });
-  }
 
   @ReactMethod
   public void enableParentalGate() {

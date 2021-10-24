@@ -1,10 +1,11 @@
 import * as React from 'react';
 
-import { StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { SAEvent, VideoAd } from 'react-native-super-awesome';
 
 export default function App() {
   React.useEffect(() => {
+    VideoAd.setCallback(onAdEvent);
     VideoAd.disableCloseButton();
     VideoAd.disableCloseAtEnd();
     VideoAd.disableParentalGate();
@@ -12,18 +13,29 @@ export default function App() {
     VideoAd.enableParentalGate();
     VideoAd.enableSmallClickButton();
     VideoAd.enableTestMode();
-    VideoAd.load(74790);
-    VideoAd.setCallback().then((result: SAEvent) => {
-      if (result === SAEvent.adLoaded) {
-        VideoAd.play(74790);
-      }
-    });
+    setTimeout(() => {
+      VideoAd.load(74790);
+    }, 200);
+
     // VideoAds.addEventListener((test: any) => {
     //   console.log('TEST', test);
     // });
   }, []);
 
-  return <View style={styles.container}></View>;
+  const onAdEvent = (event: SAEvent) => {
+    console.log('on event', event);
+    if (event === SAEvent.adLoaded) {
+      VideoAd.play(74790);
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>Hello World</Text>
+      <Button title="load" onPress={() => VideoAd.load(74790)} />
+      <Button title="play" onPress={() => VideoAd.play(74790)} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
