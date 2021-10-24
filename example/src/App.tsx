@@ -9,29 +9,30 @@ import {
   NativeModules,
 } from 'react-native';
 import { SuperAwesomeView } from 'react-native-super-awesome';
+import VideoAds from './VideoAds';
 
 const IS_ANDROID = Platform.OS === 'android';
 
 export default function App() {
-  console.log(' NativeModules.AwesomeAdsView', NativeModules);
+  React.useEffect(() => {
+    VideoAds.addEventListener((test: any) => {
+      console.log('TEST', test);
+    });
+  }, []);
 
   const loadAd = () => {
     if (!IS_ANDROID) return;
-    const callbackSuccess = () => console.log('ad loaded');
-    const callbackError = () => console.log('ad error');
-    NativeModules.AwesomeAdsView.loadAd(callbackSuccess, callbackError);
+    VideoAds.load(30479);
   };
 
   const playAd = () => {
     if (!IS_ANDROID) return;
-    const callbackSuccess = () => console.log('ad loaded');
-    const callbackError = () => console.log('ad error');
-    NativeModules.AwesomeAdsView.play(callbackSuccess, callbackError);
+    VideoAds.play(30479);
   };
 
   const enableTestMode = () => {
     if (!IS_ANDROID) return;
-    NativeModules.AwesomeAdsView.enableTestMode();
+    VideoAds.enableTestMode();
   };
 
   return (
