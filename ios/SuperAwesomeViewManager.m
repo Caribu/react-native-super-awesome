@@ -1,5 +1,6 @@
 #import "React/RCTViewManager.h"
 #import <React/RCTEventEmitter.h>
+#import "AwesomeAds.h"
 
 @interface RCT_EXTERN_MODULE(SuperAwesomeViewManager, RCTViewManager)
 
@@ -25,9 +26,12 @@ RCT_EXTERN_METHOD(setOrientationAny)
 RCT_EXTERN_METHOD(setOrientationLandscape)
 RCT_EXTERN_METHOD(setOrientationPortrait)
 
-RCT_EXTERN_METHOD(load:(int)placementId)
+//RCT_EXTERN_METHOD(load:(int)placementId)
 RCT_EXTERN_METHOD(play:(int)placementId)
 
+RCT_EXPORT_METHOD(load:(NSNumber)placementId) {
+    [SAVideo load: 74790];
+}
 
 @end
 
