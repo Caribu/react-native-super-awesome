@@ -12,6 +12,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import com.reactnativesuperawesome.SuperAwesomePackage;
 
+// super awesome
+import tv.superawesome.sdk.publisher.*;
+
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -28,6 +31,7 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for SuperAwesomeExample:
           // packages.add(new MyReactNativePackage());
           packages.add(new SuperAwesomePackage());
+          packages.add(new AwesomeAdsPackage());
           return packages;
         }
 
@@ -47,6 +51,10 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager()); // Remove this line if you don't want Flipper enabled
+
+    // super awesome
+    boolean loggingEnabled = BuildConfig.DEBUG;
+    AwesomeAds.init(this, loggingEnabled);
   }
 
   /**

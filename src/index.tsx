@@ -1,4 +1,6 @@
-import { NativeModules, Platform } from 'react-native';
+import { NativeEventEmitter, NativeModules, Platform } from 'react-native';
+
+const eventEmitter = new NativeEventEmitter(NativeModules.VideoAd);
 
 const LINKING_ERROR =
   `The package 'react-native-super-awesome' doesn't seem to be linked. Make sure: \n\n` +
@@ -32,7 +34,7 @@ type VideoAdProps = {
   enableParentalGate: () => void;
   enableTestMode: () => void;
   hasAdAvailable: (placementId: Number) => any;
-  setCallback: () => any;
+  setCallback: (callback: any) => any;
   setConfigurationProduction: () => void;
   setConfigurationStaging: () => void;
   setOrientationAny: () => void;
@@ -43,7 +45,12 @@ type VideoAdProps = {
 };
 
 export const VideoAd: VideoAdProps = NativeModules.VideoAd
-  ? NativeModules.VideoAd
+  ? {
+      ...NativeModules.VideoAd,
+      setCallback: (cb: any) => {
+        eventEmitter.addListener('AwesomeAdsVideoEvent', cb);
+      },
+    }
   : new Proxy(
       {},
       {
