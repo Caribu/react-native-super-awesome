@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   
   s.dependency "React-Core"
 
-  s.dependency "SuperAwesome", '~> 8.0.8'
+  s.dependency "SuperAwesome", '~> 8.1.3'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = "5.0"
