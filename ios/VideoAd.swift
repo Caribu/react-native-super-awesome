@@ -22,6 +22,12 @@ class VideoAd: RCTEventEmitter {
     return ["AwesomeAdsVideoEvent"]
   }
 
+  @objc func initSDK() {
+    AwesomeAds.initSDK(configuration: Configuration(environment: .production, logging: false)) {
+      print("AwesomeAds SDK init complete")
+    }
+  }
+
   @objc func disableBumperPage() {
     SuperAwesome.VideoAd.disableBumperPage()
   }

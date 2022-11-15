@@ -26,6 +26,7 @@ RCT_EXTERN_METHOD(setConfigurationStaging)
 RCT_EXTERN_METHOD(setOrientationAny)
 RCT_EXTERN_METHOD(setOrientationLandscape)
 RCT_EXTERN_METHOD(setOrientationPortrait)
+RCT_EXTERN_METHOD(initSDK)
 
 RCT_EXTERN_METHOD(load:(int)placementId)
 RCT_EXTERN_METHOD(play:(int)placementId)

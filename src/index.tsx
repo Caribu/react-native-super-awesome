@@ -42,11 +42,17 @@ type VideoAdProps = {
   setOrientationPortrait: () => void;
   load: (placementId: Number) => void;
   play: (placementId: Number) => void;
+  initSDK: () => void;
 };
 
 export const VideoAd: VideoAdProps = NativeModules.VideoAd
   ? {
       ...NativeModules.VideoAd,
+      initSDK: () => {
+        if (Platform.OS === 'ios') {
+          NativeModules.VideoAd.initSDK();
+        }
+      },
       setCallback: (cb: any) => {
         eventEmitter.addListener('AwesomeAdsVideoEvent', cb);
       },

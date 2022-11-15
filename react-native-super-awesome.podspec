@@ -10,14 +10,14 @@ Pod::Spec.new do |s|
   s.license      = package["license"]
   s.authors      = package["author"]
 
-  s.platforms    = { :ios => "10.0" }
+  s.platforms    = { :ios => "11.0" }
   s.source       = { :git => "https://github.com/Caribu/react-native-super-awesome.git", :tag => "#{s.version}" }
 
   s.source_files = "ios/**/*.{h,m,mm,swift}"
   
   s.dependency "React-Core"
 
-  s.dependency "SuperAwesome", '~> 8.1.3'
+  s.dependency "SuperAwesome", '~> 8.0'
 
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = "5.0"
